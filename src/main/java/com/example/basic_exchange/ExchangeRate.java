@@ -6,6 +6,8 @@ public class ExchangeRate {
     private String rate;
     private String time;
 
+    private String environment;
+
     public String getFrom() {
         return from;
     }
@@ -38,10 +40,19 @@ public class ExchangeRate {
         this.time = time;
     }
 
-    public ExchangeRate(String from, String to, String rate, String time) {
+    public String getEnvironment() {
+        return environment;
+    }
+
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
+    public ExchangeRate(String from, String to, String rate, String time, String environment) {
         this.from = from;
         this.to = to;
         this.rate = rate;
         this.time = time;
+        this.environment = environment;
     }
 }

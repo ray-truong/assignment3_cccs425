@@ -1,5 +1,7 @@
 package com.example.basic_exchange;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +16,22 @@ import java.util.Map;
 public class ExchangeRateService {
 
     private final Map<String, String> exchangeRates = new HashMap<>();
+    private final Environment env;
 
-    public ExchangeRateService() {
+
+
+    public ExchangeRateService(Environment env) {
+        this.env = env;
         loadExchangeRates();
     }
 
     public ExchangeRate getExchangeRate(String from, String to) {
+        String port = env.getProperty("local.server.port");
+
+
         String rate = exchangeRates.get(from + to);
         if (rate != null) {
-            return new ExchangeRate(from, to, rate, LocalDateTime.now().toString());
+            return new ExchangeRate(from, to, rate, LocalDateTime.now().toString(),port);
         }
         return null;
     }
