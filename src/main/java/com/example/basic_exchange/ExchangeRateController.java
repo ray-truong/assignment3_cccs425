@@ -17,8 +17,9 @@ public class ExchangeRateController {
     }
 
     @GetMapping("/basic/{from}/{to}")
+
     public ResponseEntity<ExchangeRate> getExchangeRate(@PathVariable String from, @PathVariable String to) {
-        ExchangeRate exchangeRate = exchangeRateService.getExchangeRate(from, to);
+        ExchangeRate exchangeRate = exchangeRateService.getExchangeRate(from.toUpperCase(), to.toUpperCase());
         if (exchangeRate != null) {
             return ResponseEntity.ok(exchangeRate);
         } else {

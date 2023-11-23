@@ -1,5 +1,7 @@
 package com.example.basic_exchange;
 
+import freemarker.core.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +12,12 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @Service
 public class ExchangeRateService {
 
     private final Map<String, String> exchangeRates = new HashMap<>();
+
 
     public ExchangeRateService() {
         loadExchangeRates();
@@ -28,7 +32,7 @@ public class ExchangeRateService {
     }
 
     private void loadExchangeRates() {
-        ClassPathResource resource = new ClassPathResource("exchange_rates.txt");
+        ClassPathResource resource = new ClassPathResource("exchange_rates.csv");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(resource.getInputStream()))) {
             String line;
             while ((line = reader.readLine()) != null) {
