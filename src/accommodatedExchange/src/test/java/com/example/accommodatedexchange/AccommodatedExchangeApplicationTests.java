@@ -1,10 +1,10 @@
-package com.example.accomodatedexchange;
+package com.example.accommodatedexchange;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AccomodatedExchangeApplicationTests {
+class AccommodatedExchangeApplicationTests {
 
     @Test
     void contextLoads() {

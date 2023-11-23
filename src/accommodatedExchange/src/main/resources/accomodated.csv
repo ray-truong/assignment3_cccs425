@@ -1,0 +1,13 @@
+currency    min-amount  discount
+CAD         1000        1.5
+CAD         5000        2
+CAD         10000       3
+USD         1000        1
+USD         4000        1
+USD         10000       2
+AUD         1000        1
+AUD         2000        2
+AUD         8000        3
+GBP         1000        2
+GBP         4000        2
+GBP         5000        3
